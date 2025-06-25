@@ -1,8 +1,8 @@
 {
   "name": "app-nodejs-codechallenge",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "Management transactions",
+  "author": "Yape",
   "scripts": {
     "start": "nest start",
     "start:prod": "node dist/main",
