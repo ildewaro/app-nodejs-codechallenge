@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowJs": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "types": ["node"],
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"]
+}
