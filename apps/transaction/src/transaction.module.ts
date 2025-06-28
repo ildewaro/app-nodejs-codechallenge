@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
 import { TransactionService } from './transaction.service';
 import { TransactionController } from './transaction.controller';
+import { KafkaProducer } from './common/kafka.producer';
+import { PrismaService } from './common/prisma.service';
 
 @Module({
   controllers: [TransactionController],
-  providers: [TransactionService, PrismaService],
+  providers: [TransactionService, PrismaService, KafkaProducer],
 })
-export class TransactionModule {}
+export class TransactionModule { }

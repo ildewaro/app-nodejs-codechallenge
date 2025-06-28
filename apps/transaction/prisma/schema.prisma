@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "sqlite" // este será reemplazado por set-schema.js
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id                      String   @id @default(uuid())
+  transactionExternalId   String?  @unique @default(uuid())
+  accountExternalIdDebit  String
+  accountExternalIdCredit String
+  transferTypeId          Int
+  value                   Float
+  status                  String?   @default("PENDING")
+  createdAt               DateTime @default(now())
+}

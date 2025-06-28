@@ -1,21 +1,28 @@
-FROM node:18-alpine
+#FROM node:18-alpine
+
+FROM node:18-bullseye
+
 
 WORKDIR /app
 
-RUN apk add --no-cache openssl python3 make g++
-
 COPY apps/transaction ./
 
-COPY prisma ./prisma
+#COPY prisma ./apps/transaction/prisma
+
+#COPY .env .env
 
 RUN npm install
 
 ENV DB_PROVIDER=postgresql
 
-RUN npx prisma generate
+RUN node prisma/set-schema.js
 
-#RUN npx prisma migrate deploy
+
+#RUN npx prisma generate --schema=./prisma/schema.prisma
+
+#RUN npx prisma generate --schema=./prisma/schema.prisma
+#RUN npx prisma migrate deploy --schema=./prisma/schema.prisma
 
 RUN npm run build
 
-CMD ["npm", "run", "start"]
+#CMD ["npm", "run", "start"]

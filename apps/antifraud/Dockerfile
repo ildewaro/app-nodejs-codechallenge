@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY apps/antifraud ./
 
-COPY prisma ./prisma
+#COPY prisma ./prisma
 
 RUN npm install
 

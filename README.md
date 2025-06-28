@@ -12,14 +12,14 @@ Ambos usan:
 
 ## 🐳 Cómo ejecutar el ecosistema completo
 
-### 1. Clona el repositorio
+### 1. Clonar el repositorio
 
 ```bash
 git clone <REPO_URL>
 cd yape-nestjs-prisma-kafka
 ```
 
-### 2. Ejecuta con Docker Compose
+### 2. Ejecutar con Docker Compose
 
 ```bash
 docker-compose up --build
@@ -28,8 +28,8 @@ docker-compose up --build
 Este comando levantará:
 - PostgreSQL
 - Zookeeper + Kafka
-- Microservicio `transactions` (puerto 3000)
-- Microservicio `antifraud` (puerto 3001)
+- Microservicio `transaction` (puerto 3000)
+- Microservicio `antifraud`
 ---
 
 ## 🔎 Probar el flujo con Postman o curl
@@ -88,13 +88,18 @@ GET http://localhost:3000/transactions/{transactionExternalId}
 ## 🧪 Consejos para pruebas
 
 - Usa [Postman](https://www.postman.com/) para enviar peticiones HTTP.
+- Se puede monitorear los logs del transaction con:
+
+```bash
+docker-compose logs -f transaction
+```
 - Se puede monitorear los logs del antifraud con:
 
 ```bash
 docker-compose logs -f antifraud
 ```
 
-- Si quieres resetear la base de datos, puedes eliminar el volumen de Docker con:
+- Si se quiere resetear la base de datos, se puede eliminar el volumen de Docker con:
 
 ```bash
 docker-compose down -v
@@ -107,7 +112,7 @@ docker-compose down -v
 ```
 .
 ├── apps/
-│   ├── transactions/
+│   ├── transaction/
 │   └── antifraud/
 ├── prisma/
 ├── docker-compose.yml

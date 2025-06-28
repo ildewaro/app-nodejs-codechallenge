@@ -1,0 +1,62 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+
+# dotenv
+.env
+.env.*.local
+.env.local
+!.env.example
+
+# Prisma
+prisma/dev.db
+prisma/dev.sqlite
+prisma/*.sqlite
+prisma/*.db
+prisma/migrations/
+*.db-journal
+
+# Dist
+dist/
+build/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs
+.vscode/
+.idea/
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# Others
+coverage/
+test-report.xml
+*.tgz
+*.zip
+*.tar
+
+# NX / Monorepo specific
+tmp/
+.cache/
+nx-report.html
+.project.json
+node_modules_*
+
+# Optional: ignore local prisma generated clients in microservicios
+apps/*/node_modules/.prisma/

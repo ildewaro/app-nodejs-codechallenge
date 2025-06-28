@@ -1,0 +1,70 @@
+[
+  {
+    "tag": "CreateTable",
+    "table": {
+      "name": "Transaction"
+    },
+    "columns": [
+      {
+        "name": "id",
+        "type": "String",
+        "arity": "Required",
+        "default": {
+          "name": "uuid",
+          "args": []
+        }
+      },
+      {
+        "name": "transactionExternalId",
+        "type": "String",
+        "arity": "Optional",
+        "isUnique": true,
+        "default": {
+          "name": "uuid",
+          "args": []
+        }
+      },
+      {
+        "name": "accountExternalIdDebit",
+        "type": "String",
+        "arity": "Required"
+      },
+      {
+        "name": "accountExternalIdCredit",
+        "type": "String",
+        "arity": "Required"
+      },
+      {
+        "name": "transferTypeId",
+        "type": "Int",
+        "arity": "Required"
+      },
+      {
+        "name": "value",
+        "type": "Float",
+        "arity": "Required"
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "arity": "Optional",
+        "default": {
+          "name": "dbgenerated",
+          "args": ["'PENDING'"]
+        }
+      },
+      {
+        "name": "createdAt",
+        "type": "DateTime",
+        "arity": "Required",
+        "default": {
+          "name": "now",
+          "args": []
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": ["id"]
+    }
+  }
+]

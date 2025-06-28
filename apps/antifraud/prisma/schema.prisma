@@ -5,18 +5,17 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
-  binaryTargets = ["native", "debian-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
-  
-  output   = "../apps/transaction/node_modules/.prisma/client"
+  binaryTargets = ["native", "debian-openssl-3.0.x", "linux-musl-openssl-3.0.x"]  
+  output   = "../apps/antifraud/node_modules/.prisma/client"
 }
 
 model Transaction {
   id                      Int      @id @default(autoincrement())
-  transactionExternalId   String   @unique
+  transactionExternalId   String?  @unique @default(uuid())
   accountExternalIdDebit  String
   accountExternalIdCredit String
   transferTypeId          Int
   value                   Float
-  status                  String
+  status                  String?
   createdAt               DateTime @default(now())
 }
